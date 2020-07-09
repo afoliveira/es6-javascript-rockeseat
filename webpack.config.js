@@ -1,8 +1,15 @@
+const path = require('path');
+
 module.exports = {
-  entry: './main.js',
+  entry: './src/main.js',
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 8080,
   },
   module: {
     rules: [
